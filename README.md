@@ -19,3 +19,4 @@
 
 ```bash
 npm install
+"# memory-game"  
