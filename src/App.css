@@ -1,0 +1,100 @@
+/* עיצוב כללי לעמוד */
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background: #f7f7f7;
+  direction: rtl; /* יישור עברי כברירת מחדל */
+}
+
+/* עיצוב בסיסי לאפליקציה */
+.App {
+  text-align: center;
+  padding: 20px;
+}
+
+/* כותרת המשחק */
+h1 {
+  color: #d35400;
+  margin-bottom: 20px;
+}
+
+/* רשת הקלפים */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+  gap: 10px;
+  max-width: 600px;
+  margin: 0 auto 30px;
+}
+
+/* קלף בודד */
+.card {
+  perspective: 1000px; /* מאפשר סיבוב תלת-ממדי */
+  width: 60px;
+  height: 60px;
+}
+
+/* החלק הפנימי של הקלף (כולל שני הצדדים) */
+.card-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+/* כשהקלף במצב flipped – סובב ב־180 מעלות */
+.card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+/* צד אחורי וצד קדמי */
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+  cursor: pointer;
+  backface-visibility: hidden; /* מסתיר צד אחורי כשהוא מאחורי */
+  user-select: none; /* אי אפשר לסמן טקסט */
+}
+
+/* צד אחורי – הקלף כשהוא סגור */
+.card-back {
+  background: linear-gradient(135deg, #FF7E5F, #FEB47B);
+  color: white;
+}
+
+/* צד קדמי – הקלף כשהוא פתוח */
+.card-front {
+  background: #ffffff;
+  color: #333;
+  transform: rotateY(180deg); /* צריך כדי שהצד ייראה נכון בסיבוב */
+  direction: rtl; /* מציג אותיות עבריות בכיוון הנכון */
+}
+
+/* אזור מידע */
+.info {
+  font-size: 1.2em;
+}
+
+/* כפתור אתחול המשחק */
+button {
+  padding: 10px 20px;
+  font-size: 1em;
+  margin-top: 10px;
+  cursor: pointer;
+  background-color: #e67e22;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #d35400;
+}
