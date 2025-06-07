@@ -32,7 +32,7 @@ function App() {
   const speakLetter = (letter) => {
    const letterNames = {
   'א': 'אָלֶף',
-  'ב': 'בֵּית',
+  'בֶּית': '',
   'ג': 'גִּימֵל',
   'ד': 'דָּלֶת',
   'ה': 'הֵא',
